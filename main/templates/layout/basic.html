@@ -33,7 +33,12 @@
                     <a class="dropdown-item" href="#">Изменить личные данные</a>
                     <a class="dropdown-item" href="#">Изменить пароль</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'main:logout' %}">Выйти</a>
+<!--                    <a class="dropdown-item" href="{% url 'main:logout' %}">Выйти</a>-->
+                    <a class="dropdown-item" href="{% url 'main:logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a>
+                    <form id="logout-form" action="{% url 'main:logout' %}" method="post" style="display: none;">
+                        {% csrf_token %}
+                    </form>
+
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Удалить</a>
                 </div>

@@ -15,9 +15,9 @@ class BBLoginView(LoginView):
     template_name = 'main/login.html'
 
 
-class BBLogoutView(LoginRequiredMixin,
-                   LogoutView):  # если используется миксин, то видимо можно и от него наследовать методы
-    template_name = 'main/logout.html'
+# class BBLogoutView(LoginRequiredMixin,
+#                    LogoutView):  # если используется миксин, то видимо можно и от него наследовать методы
+#     template_name = 'main/logout.html'
 
 
 @login_required()
