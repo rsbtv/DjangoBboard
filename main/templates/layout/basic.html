@@ -29,11 +29,11 @@
                    aria-haspopup="true"
                    aria-expanded="false">Профиль</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Мои объявления</a>
+                    <a class="dropdown-item" href="{% url 'main:profile' %}">Мои объявления</a>
                     <a class="dropdown-item" href="#">Изменить личные данные</a>
                     <a class="dropdown-item" href="#">Изменить пароль</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Выйти</a>
+                    <a class="dropdown-item" href="{% url 'main:logout' %}">Выйти</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Удалить</a>
                 </div>
