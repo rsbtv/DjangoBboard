@@ -18,7 +18,7 @@
     <div class="row"> <!-- Класс row вынуждает элемент страницы вести себя как строка таблицы !-->
         <ul class="col nav justify-content-end border"> <!-- Класс col вынуждает элемент страницы вести себя как ячейка таблицы !-->
             <li class="nav-item">
-                <a class="nav-link" href="#">Регистрация</a>
+                <a class="nav-link" href="{% url 'main:register' %}">Регистрация</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
@@ -31,7 +31,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{% url 'main:profile' %}">Мои объявления</a>
                     <a class="dropdown-item" href="{% url 'main:profile_change' %}">Изменить личные данные</a>
-                    <a class="dropdown-item" href="#">Изменить пароль</a>
+                    <a class="dropdown-item" href="{% url 'main:password_change' %}">Изменить пароль</a>
                     <div class="dropdown-divider"></div>
 <!--                    <a class="dropdown-item" href="{% url 'main:logout' %}">Выйти</a>-->
                     <a class="dropdown-item" href="{% url 'main:logout' %}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a>
