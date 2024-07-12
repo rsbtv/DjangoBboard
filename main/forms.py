@@ -33,8 +33,10 @@ class RegisterUserForm(forms.ModelForm):
         user = super().save(
             commit=False)  # commit=False, чтобы объект пользователя не был сразу сохранен в базу данных.
         user.set_password(self.cleaned_data['password1'])  # Безопасное хранение пароля в зашифрованном виде.
-        user.is_active = False
-        user.is_activated = False
+        # user.is_active = False
+        # user.is_activated = False
+        user.is_active = True
+        user.is_activated = True
         # Не может выполнять вход, пока его аккаунт не будет активирован
         if commit:  # Если commit=True, сохраняем объект пользователя в базу данных.
             user.save()
