@@ -1,7 +1,7 @@
 from django.contrib import admin
 import datetime
 
-from .models import AdvUser, SuperRubric, SubRubric
+from .models import AdvUser, SuperRubric, SubRubric, Bb, AdditionalImage
 from .utilities import send_activation_notification
 from .forms import SubRubricForm
 
@@ -48,6 +48,16 @@ class NonactivatedFilter(admin.SimpleListFilter):
             return queryset.filter(is_active=False, is_activated=False, date_joined_date_lt=d)
 
 
+class AdditionalImageInline(admin.TabularInline):
+    model = AdditionalImage
+
+
+class BbAdmin(admin.ModelAdmin):
+    list_display = ('rubric', 'title', 'content', 'author', 'created_at')
+    fields = (('rubric', 'author'), 'title', 'content', 'price', 'contacts', 'image', 'is_active')
+    inlines = (AdditionalImageInline,)
+
+
 class AdvUserAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'is_activated', 'date_joined')
     search_fields = ('username', 'email', 'first_name', 'last_name')
@@ -61,3 +71,4 @@ class AdvUserAdmin(admin.ModelAdmin):
 admin.site.register(AdvUser)
 admin.site.register(SuperRubric, SuperRubricAdmin)
 admin.site.register(SubRubric, SubrubricAdmin)
+admin.site.register(Bb, BbAdmin)
