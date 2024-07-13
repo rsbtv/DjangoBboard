@@ -24,6 +24,10 @@ from .utilities import signer  # используем уже созданный 
 
 # Create your views here.
 
+def by_rubric(request, pk):
+    pass
+
+
 class DeleteUserView(LoginRequiredMixin, DeleteView):
     model = AdvUser
     template_name = 'main/delete_user.html'
